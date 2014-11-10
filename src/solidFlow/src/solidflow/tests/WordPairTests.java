@@ -196,7 +196,7 @@
 //                tabelFound = true;
 //            }
 //        }
-//        String errorMessage = "Expected horseFound: true, houseFound: true, tableFound: true. Got: hoserFound: " + horseFound
+//        String errorMessage = "Expected horseFound: true, houseFound: true, tableFound: true. Got: horse0Found: " + horseFound
 //                + ", houseFound: " + houseFound + ", tableFound: " + tabelFound;
 //
 //        assertTrue(errorMessage, horseFound && houseFound && tabelFound);
