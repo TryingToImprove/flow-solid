@@ -20,3 +20,5 @@ src/dist/
 src/nbdist/
 src/nbactions.xml
 src/nb-configuration.xml
+/src/solidFlow/nbproject/private/
+/src/solidFlow/build/
