@@ -7,11 +7,12 @@ import solidflow.entity.WordPairRepository;
 
 public class WordPairControl implements WordPairControlInterface {
 
-    HashMap<String, WordPair> wordList;
     WordPairRepository wordPairRepository;
-
+    HashMap<String, WordPair> wordList;
+    
     public WordPairControl() {
         wordPairRepository = new WordPairRepository();
+        wordList = new HashMap<>();
     }
 
     @Override
@@ -22,7 +23,7 @@ public class WordPairControl implements WordPairControlInterface {
 
     @Override
     public int size() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return wordList.size();
     }
 
     @Override
@@ -47,8 +48,6 @@ public class WordPairControl implements WordPairControlInterface {
     @Override
     public boolean load(String filename) {
         try {
-            wordList = new HashMap<>();
-
             for (WordPair wordPair : wordPairRepository.findAll(filename)) {
                 wordList.put(wordPair.getDanishWord(), wordPair);
             }
