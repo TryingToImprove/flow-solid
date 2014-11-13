@@ -17,8 +17,8 @@ public class WordPairControl implements WordPairControlInterface {
 
     @Override
     public void add(String question, String answer) {
-
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        WordPair wordPair = new WordPair(question, answer, 0);
+        wordList.put(wordPair.getDanishWord(), wordPair);
     }
 
     @Override
