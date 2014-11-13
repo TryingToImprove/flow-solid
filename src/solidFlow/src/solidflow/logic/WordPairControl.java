@@ -7,14 +7,20 @@ import solidflow.entity.WordPairRepository;
 
 public class WordPairControl implements WordPairControlInterface {
 
+    <<<<<<< Updated upstream
     HashMap<String, WordPair> wordList;
     WordPairRepository wordPairRepository;
 
     public WordPairControl() {
         wordPairRepository = new WordPairRepository();
     }
+    =======
+    WordPair gg;
+    ArrayList<WordPair> wordList = new ArrayList();
+    >>>>>>> Stashed changes
 
     @Override
+
     public void add(String question, String answer) {
 
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
@@ -37,27 +43,26 @@ public class WordPairControl implements WordPairControlInterface {
 
     @Override
     public String lookup(String question) {
-        if(wordList.containsKey(question)){
-            return wordList.get(question).getEnglishWord();             
+        if (wordList.containsKey(question)) {
+            return wordList.get(question).getEnglishWord();
         }
-        
-        return null;        
+
+        return null;
     }
 
     @Override
     public boolean load(String filename) {
         try {
             wordList = new HashMap<>();
-            
+
             for (WordPair wordPair : wordPairRepository.findAll(filename)) {
                 wordList.put(wordPair.getDanishWord(), wordPair);
             }
-            
+
             return true;
         } catch (Exception e) {
             return false;
         }
-
     }
 
     @Override
