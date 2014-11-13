@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Random;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import solidflow.domain.WordPairControlInterface;
@@ -14,10 +15,13 @@ public class WordPairControl implements WordPairControlInterface {
 
     WordPairRepository wordPairRepository;
     HashMap<String, WordPair> wordList;
+    private Random random;
 
     public WordPairControl() {
         wordPairRepository = new WordPairRepository();
         wordList = new HashMap<>();
+        random = new Random();
+        
     }
 
     @Override
@@ -33,7 +37,10 @@ public class WordPairControl implements WordPairControlInterface {
 
     @Override
     public String getRandomQuestion() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        int randomNumber = random.nextInt(size());
+        List<String> listOfKeys = new ArrayList<>(wordList.keySet());
+        String key = listOfKeys.get(randomNumber);
+        return wordList.get(key).getDanishWord();
     }
 
     @Override
