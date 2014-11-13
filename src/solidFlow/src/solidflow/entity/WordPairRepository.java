@@ -40,7 +40,7 @@ public class WordPairRepository {
 
         try (PrintWriter output = new PrintWriter(filename, "UTF-8")) {
             for (WordPair wordPair : wordPairs) {
-                output.write(serialize(wordPair));
+                output.println(serialize(wordPair));
             }
         }
 
