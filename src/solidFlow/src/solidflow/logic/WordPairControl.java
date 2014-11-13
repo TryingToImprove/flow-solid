@@ -1,16 +1,18 @@
 package solidflow.logic;
 
-import java.util.ArrayList;
+import java.util.HashMap;
 import solidflow.domain.WordPairControlInterface;
 import solidflow.entity.WordPair;
 import solidflow.entity.WordPairRepository;
 
-
-
 public class WordPairControl implements WordPairControlInterface {
-    
-    WordPair gg;
-    ArrayList<WordPair> wordList = new ArrayList();
+
+    HashMap<String, WordPair> wordList;
+    WordPairRepository wordPairRepository;
+
+    public WordPairControl() {
+        wordPairRepository = new WordPairRepository();
+    }
 
     @Override
     public void add(String question, String answer) {
@@ -35,20 +37,27 @@ public class WordPairControl implements WordPairControlInterface {
 
     @Override
     public String lookup(String question) {
-        if(question == gg.getDanishWord()){
-            return gg.getEnglishWord();
+        if(wordList.containsKey(question)){
+            return wordList.get(question).getEnglishWord();             
         }
-        return null;
+        
+        return null;        
     }
 
     @Override
     public boolean load(String filename) {
-        wordList = WordPairRepository.loadPerson("WordPair.scv");
-        
-        
-        for(int i = 0; i < wordList.size(); i++){
+        try {
+            wordList = new HashMap<>();
             
+            for (WordPair wordPair : wordPairRepository.findAll(filename)) {
+                wordList.put(wordPair.getDanishWord(), wordPair);
+            }
+            
+            return true;
+        } catch (Exception e) {
+            return false;
         }
+
     }
 
     @Override

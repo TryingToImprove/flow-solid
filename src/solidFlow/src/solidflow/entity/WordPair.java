@@ -13,19 +13,19 @@ public class WordPair {
 
     private String danishWord;
     private String englishWord;
-    private String priority;
+    private int priority;
 
-    public WordPair(String danishWord, String englishWord, String priority) {
+    public WordPair(String danishWord, String englishWord, int priority) {
         this.danishWord = danishWord;
         this.englishWord = englishWord;
         this.priority = priority;
     }
 
-    public String getPriority() {
+    public int getPriority() {
         return priority;
     }
 
-    public void setPriority(String priority) {
+    public void setPriority(int priority) {
         this.priority = priority;
     }
 
