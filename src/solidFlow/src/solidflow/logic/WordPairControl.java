@@ -81,7 +81,6 @@ public class WordPairControl implements WordPairControlInterface {
 
     @Override
     public void clear() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        wordList.clear();
     }
-
 }
