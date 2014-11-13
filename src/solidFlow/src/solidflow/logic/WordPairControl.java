@@ -7,20 +7,14 @@ import solidflow.entity.WordPairRepository;
 
 public class WordPairControl implements WordPairControlInterface {
 
-    <<<<<<< Updated upstream
     HashMap<String, WordPair> wordList;
     WordPairRepository wordPairRepository;
 
     public WordPairControl() {
         wordPairRepository = new WordPairRepository();
     }
-    =======
-    WordPair gg;
-    ArrayList<WordPair> wordList = new ArrayList();
-    >>>>>>> Stashed changes
 
     @Override
-
     public void add(String question, String answer) {
 
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
