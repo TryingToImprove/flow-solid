@@ -1,11 +1,20 @@
 package solidflow.logic;
 
+import java.util.ArrayList;
 import solidflow.domain.WordPairControlInterface;
+import solidflow.entity.WordPair;
+import solidflow.entity.WordPairRepository;
+
+
 
 public class WordPairControl implements WordPairControlInterface {
+    
+    WordPair gg;
+    ArrayList<WordPair> wordList = new ArrayList();
 
     @Override
     public void add(String question, String answer) {
+
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
@@ -26,12 +35,20 @@ public class WordPairControl implements WordPairControlInterface {
 
     @Override
     public String lookup(String question) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        if(question == gg.getDanishWord()){
+            return gg.getEnglishWord();
+        }
+        return null;
     }
 
     @Override
     public boolean load(String filename) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        wordList = WordPairRepository.loadPerson("WordPair.scv");
+        
+        
+        for(int i = 0; i < wordList.size(); i++){
+            
+        }
     }
 
     @Override
