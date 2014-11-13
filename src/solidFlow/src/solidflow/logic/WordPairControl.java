@@ -1,6 +1,11 @@
 package solidflow.logic;
 
+import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import solidflow.domain.WordPairControlInterface;
 import solidflow.entity.WordPair;
 import solidflow.entity.WordPairRepository;
@@ -60,7 +65,18 @@ public class WordPairControl implements WordPairControlInterface {
 
     @Override
     public boolean save(String filename) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        try {
+            List<WordPair> wordPairs = new ArrayList<>();
+            for (String key : wordList.keySet()) {
+                wordPairs.add(wordList.get(key));
+            }
+
+            wordPairRepository.add(filename, wordPairs);
+
+            return true;
+        } catch (IOException ex) {
+            return false;
+        }
     }
 
     @Override

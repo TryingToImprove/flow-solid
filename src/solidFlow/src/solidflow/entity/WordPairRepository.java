@@ -36,16 +36,14 @@ public class WordPairRepository {
                 .collect(Collectors.toList());
     }
 
-    public void add(String filename, WordPair word) {
-        try {
+    public void add(String filename, List<WordPair> wordPairs) throws IOException {
 
-            try (FileWriter output = new FileWriter(new File(filename))) {
-                output.write(serialize(word));
+        try (FileWriter output = new FileWriter(new File(filename))) {
+            for (WordPair wordPair : wordPairs) {
+                output.write(serialize(wordPair));
             }
-        } catch (IOException ex) {
-            System.out.println("Could not save to file!");
-            System.out.println(ex.toString());
         }
+
     }
 
     private WordPair deserialize(String str) {
