@@ -6,6 +6,8 @@
 
 package solidflow.gui;
 
+import solidflow.logic.WordPairControl;
+
 /**
  *
  * @author rolf
@@ -15,8 +17,13 @@ public class WordPairGui extends javax.swing.JFrame {
     /**
      * Creates new form WordPairGui
      */
+    WordPairControl wpc = new WordPairControl();
+    private String filename = "WordPair.csv";
+    
     public WordPairGui() {
         initComponents();
+        wpc.load(filename);
+        
     }
 
     /**
@@ -140,18 +147,34 @@ public class WordPairGui extends javax.swing.JFrame {
 
     private void jButtonNextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonNextActionPerformed
         // TODO add your handling code here:
+        jTexQuestion.setText(wpc.getRandomQuestion());
+        jTextAnswer.setText("");
     }//GEN-LAST:event_jButtonNextActionPerformed
 
     private void jButtonGuessActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonGuessActionPerformed
         // TODO add your handling code here:
+        
+        boolean isCorrect = wpc.checkGuess(jTexQuestion.getText(), jTextAnswer.getText());
+        
+        if (isCorrect) {
+            jLabelRightWrong.setText("Correct!");
+        } else {
+            jLabelRightWrong.setText("Wrong!");
+        }
+        
     }//GEN-LAST:event_jButtonGuessActionPerformed
 
     private void jButtonLookUpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonLookUpActionPerformed
         // TODO add your handling code here:
+        jTextAnswer.setText(wpc.lookup(jTexQuestion.getText()));
     }//GEN-LAST:event_jButtonLookUpActionPerformed
 
     private void jButtonNewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonNewActionPerformed
         // TODO add your handling code here:
+        wpc.add(jTexQuestion.getText(), jTextAnswer.getText());
+        jTextAnswer.setText("");
+        jTexQuestion.setText("");
+        jLabelRightWrong.setText("New word pair added!");
     }//GEN-LAST:event_jButtonNewActionPerformed
 
     /**
