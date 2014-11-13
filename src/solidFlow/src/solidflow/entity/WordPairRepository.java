@@ -7,8 +7,8 @@ package solidflow.entity;
 
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.io.FileWriter;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -38,7 +38,7 @@ public class WordPairRepository {
 
     public void add(String filename, List<WordPair> wordPairs) throws IOException {
 
-        try (FileWriter output = new FileWriter(new File(filename))) {
+        try (PrintWriter output = new PrintWriter(filename, "UTF-8")) {
             for (WordPair wordPair : wordPairs) {
                 output.write(serialize(wordPair));
             }
