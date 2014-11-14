@@ -34,12 +34,14 @@
                           <Component id="jLabelAnswer" min="-2" pref="66" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="jTexQuestion" max="32767" attributes="0"/>
-                              <Component id="jTextAnswer" pref="190" max="32767" attributes="0"/>
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Component id="jTexQuestion" max="32767" attributes="0"/>
+                          <Component id="jTextAnswer" pref="190" max="32767" attributes="0"/>
+                          <Group type="102" attributes="0">
+                              <Component id="jButtonNew" linkSize="3" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="32767" attributes="0"/>
+                              <Component id="jButtonSave" linkSize="3" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <Component id="jButtonNew" linkSize="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
@@ -75,6 +77,7 @@
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jButtonNew" linkSize="4" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jButtonLookUp" linkSize="4" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jButtonSave" linkSize="4" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace pref="52" max="32767" attributes="0"/>
               <Component id="jLabelRightWrong" min="-2" pref="33" max="-2" attributes="0"/>
@@ -142,6 +145,14 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Guess a word or look up a word"/>
       </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="jButtonSave">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Save"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonSaveActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>

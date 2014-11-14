@@ -45,6 +45,7 @@ public class WordPairGui extends javax.swing.JFrame {
         jButtonLookUp = new javax.swing.JButton();
         jButtonNew = new javax.swing.JButton();
         jLabelRightWrong = new javax.swing.JLabel();
+        jButtonSave = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -86,6 +87,13 @@ public class WordPairGui extends javax.swing.JFrame {
 
         jLabelRightWrong.setText("Guess a word or look up a word");
 
+        jButtonSave.setText("Save");
+        jButtonSave.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonSaveActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -100,11 +108,13 @@ public class WordPairGui extends javax.swing.JFrame {
                             .addComponent(jLabelQuestion, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabelAnswer, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(jTexQuestion)
-                                .addComponent(jTextAnswer, javax.swing.GroupLayout.DEFAULT_SIZE, 190, Short.MAX_VALUE))
-                            .addComponent(jButtonNew))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jTexQuestion)
+                            .addComponent(jTextAnswer, javax.swing.GroupLayout.DEFAULT_SIZE, 190, Short.MAX_VALUE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jButtonNew)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jButtonSave)))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jButtonLookUp)
@@ -113,7 +123,7 @@ public class WordPairGui extends javax.swing.JFrame {
                 .addContainerGap(22, Short.MAX_VALUE))
         );
 
-        layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {jButtonGuess, jButtonLookUp, jButtonNew, jButtonNext});
+        layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {jButtonGuess, jButtonLookUp, jButtonNew, jButtonNext, jButtonSave});
 
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -133,14 +143,15 @@ public class WordPairGui extends javax.swing.JFrame {
                 .addGap(34, 34, 34)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButtonNew)
-                    .addComponent(jButtonLookUp))
+                    .addComponent(jButtonLookUp)
+                    .addComponent(jButtonSave))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 52, Short.MAX_VALUE)
                 .addComponent(jLabelRightWrong, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {jLabelAnswer, jLabelQuestion, jTexQuestion, jTextAnswer});
 
-        layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {jButtonGuess, jButtonLookUp, jButtonNew});
+        layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {jButtonGuess, jButtonLookUp, jButtonNew, jButtonSave});
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -177,11 +188,18 @@ public class WordPairGui extends javax.swing.JFrame {
         jLabelRightWrong.setText("New word pair added!");
     }//GEN-LAST:event_jButtonNewActionPerformed
 
+    private void jButtonSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSaveActionPerformed
+        // TODO add your handling code here:
+        wpc.save(filename);
+        jLabelRightWrong.setText("Collection added!");
+    }//GEN-LAST:event_jButtonSaveActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonGuess;
     private javax.swing.JButton jButtonLookUp;
     private javax.swing.JButton jButtonNew;
     private javax.swing.JButton jButtonNext;
+    private javax.swing.JButton jButtonSave;
     private javax.swing.JLabel jLabelAnswer;
     private javax.swing.JLabel jLabelHeadline;
     private javax.swing.JLabel jLabelQuestion;
