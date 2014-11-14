@@ -3,10 +3,9 @@ package solidflow.logic;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Random;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import solidflow.domain.WordPairControlInterface;
 import solidflow.entity.WordPair;
 import solidflow.entity.WordPairRepository;
@@ -21,12 +20,12 @@ public class WordPairControl implements WordPairControlInterface {
         wordPairRepository = new WordPairRepository();
         wordList = new HashMap<>();
         random = new Random();
-        
+
     }
 
     @Override
     public void add(String question, String answer) {
-        WordPair wordPair = new WordPair(question, answer, 0);
+        WordPair wordPair = new WordPair(question, answer, 1);
         wordList.put(wordPair.getDanishWord(), wordPair);
     }
 
@@ -37,10 +36,24 @@ public class WordPairControl implements WordPairControlInterface {
 
     @Override
     public String getRandomQuestion() {
-        int randomNumber = random.nextInt(size());
-        List<String> listOfKeys = new ArrayList<>(wordList.keySet());
-        String key = listOfKeys.get(randomNumber);
-        return wordList.get(key).getDanishWord();
+        int randomNumber = random.nextInt(16);
+        int priority = getPriority(randomNumber);
+
+        List<WordPair> possibleWordPairs = new LinkedList<>();
+        for (String key : wordList.keySet()) {
+            WordPair wordPair = wordList.get(key);
+
+            if (wordPair.getPriority() == priority) {
+                possibleWordPairs.add(wordPair);
+            }
+        }
+
+        if (possibleWordPairs.isEmpty()) {
+            return getRandomQuestion();
+        }
+
+        int randomPossibleNumber = random.nextInt(possibleWordPairs.size());
+        return possibleWordPairs.get(randomPossibleNumber).getDanishWord();
     }
 
     @Override
@@ -89,5 +102,29 @@ public class WordPairControl implements WordPairControlInterface {
     @Override
     public void clear() {
         wordList.clear();
+    }
+
+    private int getPriority(int number) {
+        if (number >= 0 && number <= 5) {
+            return 1;
+        }
+
+        if (number >= 6 && number <= 9) {
+            return 2;
+        }
+
+        if (number >= 10 && number <= 12) {
+            return 3;
+        }
+
+        if (number >= 13 && number <= 14) {
+            return 4;
+        }
+
+        if (number == 15) {
+            return 5;
+        }
+
+        return 1;
     }
 }
