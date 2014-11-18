@@ -24,11 +24,10 @@
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
           <Component id="jLabelHeadline" alignment="1" max="32767" attributes="0"/>
-          <Group type="102" alignment="0" attributes="0">
+          <Group type="102" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="1" attributes="0">
-                  <Component id="jLabelRightWrong" alignment="1" min="-2" pref="357" max="-2" attributes="0"/>
-                  <Group type="102" attributes="0">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="jLabelQuestion" min="-2" pref="79" max="-2" attributes="0"/>
                           <Component id="jLabelAnswer" min="-2" pref="66" max="-2" attributes="0"/>
@@ -36,7 +35,7 @@
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
                           <Component id="jTexQuestion" max="32767" attributes="0"/>
-                          <Component id="jTextAnswer" pref="190" max="32767" attributes="0"/>
+                          <Component id="jTextAnswer" max="32767" attributes="0"/>
                           <Group type="102" attributes="0">
                               <Component id="jButtonNew" linkSize="3" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="32767" attributes="0"/>
@@ -50,8 +49,9 @@
                           <Component id="jButtonGuess" linkSize="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
+                  <Component id="jLabelRightWrong" alignment="0" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="22" max="32767" attributes="0"/>
+              <EmptySpace max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -63,7 +63,7 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="jLabelQuestion" linkSize="2" min="-2" max="-2" attributes="0"/>
                   <Component id="jTexQuestion" linkSize="2" min="-2" max="-2" attributes="0"/>
-                  <Component id="jButtonNext" alignment="1" max="32767" attributes="0"/>
+                  <Component id="jButtonNext" alignment="1" pref="51" max="32767" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
@@ -74,13 +74,16 @@
                   <Component id="jLabelAnswer" linkSize="2" min="-2" pref="41" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="jButtonNew" linkSize="4" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jButtonLookUp" linkSize="4" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jButtonSave" linkSize="4" alignment="3" min="-2" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
+                      <Component id="jButtonNew" linkSize="4" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace pref="50" max="32767" attributes="0"/>
+                      <Component id="jLabelRightWrong" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                  </Group>
+                  <Component id="jButtonLookUp" linkSize="4" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="jButtonSave" linkSize="4" alignment="0" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="52" max="32767" attributes="0"/>
-              <Component id="jLabelRightWrong" min="-2" pref="33" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -135,7 +138,7 @@
     </Component>
     <Component class="javax.swing.JButton" name="jButtonNew">
       <Properties>
-        <Property name="text" type="java.lang.String" value="New"/>
+        <Property name="text" type="java.lang.String" value="Add new wordpair"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonNewActionPerformed"/>
