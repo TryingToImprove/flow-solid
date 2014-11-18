@@ -6,6 +6,7 @@
 
 package solidflow.gui;
 
+import javax.swing.JOptionPane;
 import solidflow.logic.WordPairControl;
 
 /**
@@ -183,7 +184,16 @@ public class WordPairGui extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonLookUpActionPerformed
 
     private void jButtonNewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonNewActionPerformed
-        // TODO add your handling code here:
+        if(jTexQuestion.getText().equals("")){
+            JOptionPane.showMessageDialog(this, "Question can not be empty");
+            return;
+        }
+        
+        if(jTextAnswer.getText().equals("")){
+            JOptionPane.showMessageDialog(this, "Answer can not be empty");
+            return;
+        }
+        
         wpc.add(jTexQuestion.getText(), jTextAnswer.getText());
         jTextAnswer.setText("");
         jTexQuestion.setText("");
