@@ -19,13 +19,13 @@ public class WordPairGui extends javax.swing.JFrame {
      */
     WordPairControl wpc = new WordPairControl();
     private String filename = "WordPair.csv";
-
+    
     public WordPairGui() {
         initComponents();
         
         boolean isLoaded = wpc.load(filename);
         
-        if(!isLoaded){
+        if (!isLoaded) {
             JOptionPane.showMessageDialog(this, "Could not load from file");
         }
     }
@@ -172,18 +172,18 @@ public class WordPairGui extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Question can not be empty");
             return;
         }
-
+        
         if (jTextAnswer.getText().equals("")) {
             JOptionPane.showMessageDialog(this, "Answer can not be empty");
             return;
         }
-
+        
         if (wpc.lookup(jTexQuestion.getText()) == null) {
             JOptionPane.showMessageDialog(this, "'" + jTexQuestion.getText() + "' is not a added wordpair");
         }
-
+        
         boolean isCorrect = wpc.checkGuess(jTexQuestion.getText(), jTextAnswer.getText());
-
+        
         if (isCorrect) {
             jLabelRightWrong.setText("Correct!");
         } else {
@@ -197,14 +197,14 @@ public class WordPairGui extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Question can not be empty");
             return;
         }
-
+        
         String result = wpc.lookup(jTexQuestion.getText());
-
+        
         if (result == null || result.equals("")) {
             JOptionPane.showMessageDialog(this, "Could not lookup '" + jTexQuestion.getText() + "', because it was not found");
             return;
         }
-
+        
         jTextAnswer.setText(result);
     }//GEN-LAST:event_jButtonLookUpActionPerformed
 
@@ -213,12 +213,12 @@ public class WordPairGui extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Question can not be empty");
             return;
         }
-
+        
         if (jTextAnswer.getText().equals("")) {
             JOptionPane.showMessageDialog(this, "Answer can not be empty");
             return;
         }
-
+        
         wpc.add(jTexQuestion.getText(), jTextAnswer.getText());
         jTextAnswer.setText("");
         jTexQuestion.setText("");
@@ -227,7 +227,7 @@ public class WordPairGui extends javax.swing.JFrame {
 
     private void jButtonSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSaveActionPerformed
         boolean isSaved = wpc.save(filename);
-
+        
         if (isSaved) {
             jLabelRightWrong.setText("Collection added!");
         } else {
