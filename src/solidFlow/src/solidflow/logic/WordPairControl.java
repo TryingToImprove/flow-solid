@@ -13,9 +13,9 @@ import solidflow.entity.WordPairRepository;
 
 public class WordPairControl implements WordPairControlInterface {
 
-    private WordPairRepository wordPairRepository;
-    private Map<String, WordPair> wordList;
-    private Random random;
+    private final WordPairRepository wordPairRepository;
+    private final Map<String, WordPair> wordList;
+    private final Random random;
 
     public WordPairControl() {
         wordPairRepository = new WordPairRepository();
