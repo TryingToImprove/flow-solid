@@ -165,8 +165,20 @@ public class WordPairGui extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonNextActionPerformed
 
     private void jButtonGuessActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonGuessActionPerformed
-        // TODO add your handling code here:
+        if (jTexQuestion.getText().equals("")) {
+            JOptionPane.showMessageDialog(this, "Question can not be empty");
+            return;
+        }
 
+        if (jTextAnswer.getText().equals("")) {
+            JOptionPane.showMessageDialog(this, "Answer can not be empty");
+            return;
+        }
+        
+        if(wpc.lookup(jTexQuestion.getText()) == null){
+            JOptionPane.showMessageDialog(this, "'" + jTexQuestion.getText() + "' is not a added wordpair");
+        }
+        
         boolean isCorrect = wpc.checkGuess(jTexQuestion.getText(), jTextAnswer.getText());
 
         if (isCorrect) {
@@ -178,11 +190,11 @@ public class WordPairGui extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonGuessActionPerformed
 
     private void jButtonLookUpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonLookUpActionPerformed
-         if (jTexQuestion.getText().equals("")) {
+        if (jTexQuestion.getText().equals("")) {
             JOptionPane.showMessageDialog(this, "Question can not be empty");
             return;
         }
-        
+
         String result = wpc.lookup(jTexQuestion.getText());
 
         if (result == null || result.equals("")) {
