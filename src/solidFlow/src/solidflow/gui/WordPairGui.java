@@ -3,7 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package solidflow.gui;
 
 import javax.swing.JOptionPane;
@@ -20,11 +19,11 @@ public class WordPairGui extends javax.swing.JFrame {
      */
     WordPairControl wpc = new WordPairControl();
     private String filename = "WordPair.csv";
-    
+
     public WordPairGui() {
         initComponents();
         wpc.load(filename);
-        
+
     }
 
     /**
@@ -167,33 +166,44 @@ public class WordPairGui extends javax.swing.JFrame {
 
     private void jButtonGuessActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonGuessActionPerformed
         // TODO add your handling code here:
-        
+
         boolean isCorrect = wpc.checkGuess(jTexQuestion.getText(), jTextAnswer.getText());
-        
+
         if (isCorrect) {
             jLabelRightWrong.setText("Correct!");
         } else {
             jLabelRightWrong.setText("Wrong!");
         }
-        
+
     }//GEN-LAST:event_jButtonGuessActionPerformed
 
     private void jButtonLookUpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonLookUpActionPerformed
-        // TODO add your handling code here:
-        jTextAnswer.setText(wpc.lookup(jTexQuestion.getText()));
-    }//GEN-LAST:event_jButtonLookUpActionPerformed
-
-    private void jButtonNewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonNewActionPerformed
-        if(jTexQuestion.getText().equals("")){
+         if (jTexQuestion.getText().equals("")) {
             JOptionPane.showMessageDialog(this, "Question can not be empty");
             return;
         }
         
-        if(jTextAnswer.getText().equals("")){
+        String result = wpc.lookup(jTexQuestion.getText());
+
+        if (result == null || result.equals("")) {
+            JOptionPane.showMessageDialog(this, "Could not lookup '" + jTexQuestion.getText() + "', because it was not found");
+            return;
+        }
+
+        jTextAnswer.setText(result);
+    }//GEN-LAST:event_jButtonLookUpActionPerformed
+
+    private void jButtonNewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonNewActionPerformed
+        if (jTexQuestion.getText().equals("")) {
+            JOptionPane.showMessageDialog(this, "Question can not be empty");
+            return;
+        }
+
+        if (jTextAnswer.getText().equals("")) {
             JOptionPane.showMessageDialog(this, "Answer can not be empty");
             return;
         }
-        
+
         wpc.add(jTexQuestion.getText(), jTextAnswer.getText());
         jTextAnswer.setText("");
         jTexQuestion.setText("");
