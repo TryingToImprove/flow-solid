@@ -59,32 +59,4 @@ public class WordPairRepository {
     private String serialize(WordPair word) {
         return word.getDanishWord() + "," + word.getEnglishWord() + "," + word.getPriority();
     }
-
-//public static ArrayList<WordPair> loadPerson(String filename)
-//    {
-//        Scanner file_scanner = null;
-//        ArrayList<WordPair> wordArray = new ArrayList<WordPair>();
-//
-//        try {
-//            file_scanner = new Scanner(new File(filename));  //Connection to the file using the Scanner object
-//        } catch (FileNotFoundException ex) {
-//            System.out.println("Could not find the file to load from! Returning null.");
-//            ex.printStackTrace();
-//            return null;  //If something goes wrong the method returns null
-//        }
-//
-//        while (file_scanner.hasNextLine()) {  //File found. Reading one line.             
-//            String linje = file_scanner.nextLine();
-//            Scanner sc = new Scanner(linje).useDelimiter(",");
-//            String danishWord = sc.next();
-//            String englishWord = sc.next();
-//            String priority = sc.next();
-//            WordPair w = new WordPair(danishWord, englishWord, priority);
-//            System.out.println(w);
-//            wordArray.add(w);  //Reading in a single line and saving in the ArrayList
-//        }
-//
-//        file_scanner.close();  //Closing the file
-//        return wordArray;    //returning the arraylist
-//    }    
 }
