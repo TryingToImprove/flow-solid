@@ -22,8 +22,12 @@ public class WordPairGui extends javax.swing.JFrame {
 
     public WordPairGui() {
         initComponents();
-        wpc.load(filename);
-
+        
+        boolean isLoaded = wpc.load(filename);
+        
+        if(!isLoaded){
+            JOptionPane.showMessageDialog(this, "Could not load from file");
+        }
     }
 
     /**
