@@ -21,7 +21,6 @@ public class WordPairControl implements WordPairControlInterface {
         wordPairRepository = new WordPairRepository();
         wordList = new HashMap<>();
         random = new Random();
-
     }
 
     @Override
