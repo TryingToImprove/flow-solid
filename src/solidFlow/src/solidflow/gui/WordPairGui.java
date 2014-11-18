@@ -177,11 +177,11 @@ public class WordPairGui extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Answer can not be empty");
             return;
         }
-        
-        if(wpc.lookup(jTexQuestion.getText()) == null){
+
+        if (wpc.lookup(jTexQuestion.getText()) == null) {
             JOptionPane.showMessageDialog(this, "'" + jTexQuestion.getText() + "' is not a added wordpair");
         }
-        
+
         boolean isCorrect = wpc.checkGuess(jTexQuestion.getText(), jTextAnswer.getText());
 
         if (isCorrect) {
