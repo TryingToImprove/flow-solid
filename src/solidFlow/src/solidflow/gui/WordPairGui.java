@@ -163,7 +163,6 @@ public class WordPairGui extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonNextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonNextActionPerformed
-        // TODO add your handling code here:
         jTexQuestion.setText(wpc.getRandomQuestion());
         jTextAnswer.setText("");
     }//GEN-LAST:event_jButtonNextActionPerformed
