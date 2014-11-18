@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Map;
 import java.util.Random;
 import solidflow.domain.WordPairControlInterface;
 import solidflow.entity.WordPair;
@@ -12,8 +13,8 @@ import solidflow.entity.WordPairRepository;
 
 public class WordPairControl implements WordPairControlInterface {
 
-    WordPairRepository wordPairRepository;
-    HashMap<String, WordPair> wordList;
+    private WordPairRepository wordPairRepository;
+    private Map<String, WordPair> wordList;
     private Random random;
 
     public WordPairControl() {
