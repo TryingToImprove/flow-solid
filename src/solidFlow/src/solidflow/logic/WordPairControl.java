@@ -57,8 +57,25 @@ public class WordPairControl implements WordPairControlInterface {
     }
 
     @Override
-    public boolean checkGuess(String question, String quess) {
-        return lookup(question).equals(quess);
+    public boolean checkGuess(String question, String guess) {
+        if (!wordList.containsKey(question)) {
+            return false;
+        }
+        
+        WordPair wordPair = wordList.get(question);
+        boolean isCorrect = wordPair.getEnglishWord().equalsIgnoreCase(guess);
+        int priority = wordPair.getPriority();
+        
+        if (isCorrect) {
+            priority++;
+        } else {
+            priority--;
+        }
+        
+        if(priority >= 1 && priority <=5){
+            wordPair.setPriority(priority);
+        }
+        return isCorrect;
     }
 
     @Override
