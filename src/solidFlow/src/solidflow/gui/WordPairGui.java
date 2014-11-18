@@ -226,9 +226,13 @@ public class WordPairGui extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonNewActionPerformed
 
     private void jButtonSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSaveActionPerformed
-        // TODO add your handling code here:
-        wpc.save(filename);
-        jLabelRightWrong.setText("Collection added!");
+        boolean isSaved = wpc.save(filename);
+
+        if (isSaved) {
+            jLabelRightWrong.setText("Collection added!");
+        } else {
+            JOptionPane.showMessageDialog(this, "Could not save the changes");
+        }
     }//GEN-LAST:event_jButtonSaveActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
