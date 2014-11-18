@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="13.0">
+  <zoom_level>10</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>580</x>
+      <y>320</y>
+      <w>280</w>
+      <h>190</h>
+    </coordinates>
+    <panel_attributes>solidflow.logic::WordPairControl
+--
+- wordPairRepository : WordPairRepository
+- wordList : Map&lt;String, WordPair&gt; 
+- random : Random
+--
+- getPriority(int number) : int</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>550</x>
+      <y>0</y>
+      <w>370</w>
+      <h>230</h>
+    </coordinates>
+    <panel_attributes>solidflow.domain::WordPairControlInterface
+--
+--
++ add(String question, String answer) : void
++ size() : int
++ getRandomQuestion() : String
++ checkGuess(String question, String quess) : boolean
++ lookup(String question) : String
++ load(String filename) : boolean
++ save(String filename) : boolean
++ clear() : void</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>710</x>
+      <y>220</y>
+      <w>30</w>
+      <h>120</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;100.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>0</x>
+      <y>280</y>
+      <w>360</w>
+      <h>130</h>
+    </coordinates>
+    <panel_attributes>solidflow.entity::WordPairRepository
+--
+--
++ findAll(String filename) : List&lt;WordPair&gt;
++ add(String filename, List&lt;WordPair&gt; wordpairs) : void
+- deserialize(String str) : WordPair
+- serialize(WordPair wordPair) : String  </panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>350</x>
+      <y>340</y>
+      <w>250</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;230.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>0</x>
+      <y>10</y>
+      <w>300</w>
+      <h>200</h>
+    </coordinates>
+    <panel_attributes>solidflow.entity::WordPair
+--
+- danishWord : String
+- englishWord : String
+- priority : int
+--
++ getPriority() : int
++ setPriority(int priority) : void
++ getDanishWord() : String
++ setDanishWord(String danishWord) : void
++ getEnglishWord() : String
++ setEnglishWord(String englishWord) : void </panel_attributes>
+    <additional_attributes/>
+  </element>
+</diagram>
