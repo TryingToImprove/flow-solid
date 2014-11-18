@@ -180,6 +180,7 @@ public class WordPairGui extends javax.swing.JFrame {
         
         if (wpc.lookup(jTexQuestion.getText()) == null) {
             JOptionPane.showMessageDialog(this, "'" + jTexQuestion.getText() + "' is not a added wordpair");
+            return;
         }
         
         boolean isCorrect = wpc.checkGuess(jTexQuestion.getText(), jTextAnswer.getText());
