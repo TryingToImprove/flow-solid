@@ -52,6 +52,7 @@ public class WordPairGui extends javax.swing.JFrame {
         jButtonSave = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
 
         jLabelHeadline.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabelHeadline.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
